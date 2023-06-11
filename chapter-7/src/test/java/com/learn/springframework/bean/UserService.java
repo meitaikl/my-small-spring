@@ -1,13 +1,15 @@
 package com.learn.springframework.bean;
 
 import com.learn.springframework.bean.UserDao;
+import com.learn.springframework.beans.factory.DisposableBean;
+import com.learn.springframework.beans.factory.InitializingBean;
 
 /**
  * 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  * 公众号：bugstack虫洞栈
  * Create by 小傅哥(fustack)
  */
-public class UserService {
+public class UserService implements InitializingBean, DisposableBean {
 
     private String uId;
     private String company;
@@ -48,5 +50,15 @@ public class UserService {
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("执行destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() {
+        System.out.println("执行afterPropertiesSet");
     }
 }

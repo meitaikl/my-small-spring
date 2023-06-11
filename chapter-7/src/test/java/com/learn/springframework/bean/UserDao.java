@@ -12,9 +12,19 @@ public class UserDao {
 
     private static Map<String, String> map = new HashMap<>();
 
-    static {
+    //static {
+    //    map.put("1", "孙悟空");
+    //    map.put("2", "猪八戒");
+    //}
+
+    public void initDataMethod() {
         map.put("1", "孙悟空");
         map.put("2", "猪八戒");
+    }
+
+    public void destroyDataMethod() {
+        System.out.println("=======执行 destroyDataMethod======");
+        map.clear();
     }
 
     public String queryUserName(String uid) {

@@ -5,29 +5,33 @@ import com.learn.springframework.beans.PropertyValues;
 /**
  * @author meiguangya
  * @date 2023/4/3 5:02 下午
- * @description TODO
+ * @description Bean的定义
  */
 public class BeanDefinition {
 
-    public Class beanClass;
+    public Class<?> beanClass;
 
     private PropertyValues propertyValues;
 
-    public BeanDefinition(Class beanClass) {
+    private String initMethodName;
+
+    private String destroyMethodName;
+
+    public BeanDefinition(Class<?> beanClass) {
         this.beanClass = beanClass;
         this.propertyValues = new PropertyValues();
     }
 
-    public BeanDefinition(Class beanClass, PropertyValues propertyValues) {
+    public BeanDefinition(Class<?> beanClass, PropertyValues propertyValues) {
         this.beanClass = beanClass;
         this.propertyValues = propertyValues;
     }
 
-    public Class getBeanClass() {
+    public Class<?> getBeanClass() {
         return beanClass;
     }
 
-    public void setBeanClass(Class beanClass) {
+    public void setBeanClass(Class<?> beanClass) {
         this.beanClass = beanClass;
     }
 
@@ -37,5 +41,21 @@ public class BeanDefinition {
 
     public void setPropertyValues(PropertyValues propertyValues) {
         this.propertyValues = propertyValues;
+    }
+
+    public String getInitMethodName() {
+        return initMethodName;
+    }
+
+    public void setInitMethodName(String initMethodName) {
+        this.initMethodName = initMethodName;
+    }
+
+    public String getDestroyMethodName() {
+        return destroyMethodName;
+    }
+
+    public void setDestroyMethodName(String destroyMethodName) {
+        this.destroyMethodName = destroyMethodName;
     }
 }

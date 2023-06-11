@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
 
-    <bean id="userDao" class="com.learn.springframework.bean.UserDao">
+    <bean id="userDao" class="com.learn.springframework.bean.UserDao"
+          init-method="initDataMethod" destroy-method="destroyDataMethod">
 
     </bean>
 
@@ -12,7 +13,7 @@
         <property name="userDao" ref="userDao"/>
     </bean>
 
-    <bean class="com.learn.springframework.MyBeanFactoryPostProcessor"></bean>
-    <bean class="com.learn.springframework.MyBeanPostProcessor"></bean>
+<!--    <bean class="com.learn.springframework.MyBeanFactoryPostProcessor"></bean>-->
+<!--    <bean class="com.learn.springframework.MyBeanPostProcessor"></bean>-->
 
 </beans>
